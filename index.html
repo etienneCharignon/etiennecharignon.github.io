@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Étienne Charignon: code</title>
+    </head>
+    <body>
+        Voici les projets d'Étienne Charignon&hellip;
+        <ul id="repos">
+        </ul>
+        <script>
+function gotRepos(data) {
+  var reposWithPages = data.data.filter(function (repo) {return repo.has_pages && !repo.fork && repo.name !== 'etiennecharignon.github.io';});
+  console.log(reposWithPages);
+  document.getElementById('repos').innerHTML =
+    reposWithPages.map(function (repo) {
+      return '<li><a href="/' + repo.name + '">' + repo.name + '</a>'+ (repo.description ? ': ' + repo.description : '') + '</li>';
+    }).join('');
+}
+        </script>
+        <script src="https://api.github.com/users/etiennecharignon/repos?callback=gotRepos"></script>
+    </body>
+</html>
