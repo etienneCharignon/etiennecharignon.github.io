@@ -12,7 +12,7 @@ function gotRepos(data) {
   console.log(reposWithPages);
   document.getElementById('repos').innerHTML =
     reposWithPages.map(function (repo) {
-      return '<li><a href="/' + repo.name + '">' + repo.name + '</a>'+ (repo.description ? ': ' + repo.description : '') + '</li>';
+      return '<li><a href="/' + repo.name + '">' + repo.name + '</a>'+ (repo.description ? ' : ' + repo.description : '') + '</li>';
     }).join('');
 }
         </script>
